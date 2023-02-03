@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+
+:root {
+    --strong-cyan: hsl(172, 67%, 45%);
+    --dark-cyan: hsl(183, 100%, 15%);
+    --dark-gray-cyan: hsl(186, 14%, 43%);
+    --gray-cyan: hsl(184, 14%, 56%);
+    --light-gray-cyan: hsl(185, 41%, 84%);
+    --v-light-gray-cyan: hsl(189, 41%, 97%);
+    --soft-red: hsl(0, 100%, 76%);
+    --white: hsl(0, 0%, 100%);
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Space Mono', monospace;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+#num-of-people.error-input:focus {
+    outline: 2px solid var(--soft-red);
+}
+
+body {
+    margin: 0;
+    background-color: var(--light-gray-cyan);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    height: 20vh;
+    display: flex;
+    align-items: center;    
+}
+
+main {
+    width: 100vw;
+    background-color: var(--white);
+    padding: 2em;
+    border-radius: 20px 20px 0 0;
+}
+
+label {
+    display: block;
+    margin: .4em 0;
+}
+
+.standard-label {
+    color: var(--dark-gray-cyan);
+}
+
+input[type=number] {
+    background-color: var(--v-light-gray-cyan);
+    border: none;
+    text-align: right;
+    width: 100%;
+    padding: .3em .5em;
+    border-radius: 5px;
+    color: var(--dark-cyan);
+}
+
+
+input[type=number], #select-tip>label {
+    font-size: 24px;
+}
+
+input[type=number]:focus {
+    outline: 2px solid var(--strong-cyan);
+}
+
+#bill {
+    background: url('../images/icon-dollar.svg') no-repeat 7%;
+    background-color: var(--v-light-gray-cyan);
+}
+
+#num-of-people {
+    background: url('../images/icon-person.svg') no-repeat 7%;
+    background-color: var(--v-light-gray-cyan);
+}
+
+#select-tip {
+    margin: 2em 0;
+    border: none;
+    padding-block-start: .75em;
+    padding-inline-start: 0;
+    padding-block-end: .75em;
+    padding-inline-end: 0;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+}
+
+input[type=radio] {
+    display: none;
+}
+
+input[type=radio] + label {
+    margin: 0;
+    color: var(--white);
+    width: 100%;
+    text-align: center;
+    background-color: var(--dark-cyan);
+    padding: .3em 0;
+    border-radius: 5px;
+}
+
+input[type=radio]:checked + label {
+    background-color: var(--strong-cyan);
+    color: var(--dark-cyan);
+}
+
+#num-people-label {
+    display: flex;
+    justify-content: space-between;
+}
+
+#zero-error {
+    color: var(--soft-red);
+}
+
+#tip-custom-label {
+    padding: 0;
+    visibility: hidden;
+    position: relative;
+    z-index: 5;
+}
+
+#tip-custom-label>input {
+    visibility: visible;
+}
+
+.results {
+    margin-top: 2em;
+    background-color: var(--dark-cyan);
+    border-radius: 20px;
+    padding: 1.3em;
+}
+
+.tip-amount, .total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tip-amount-label>p:first-of-type, .total-label>p:first-of-type {
+    color: var(--v-light-gray-cyan);
+    margin-bottom: 0;
+}
+
+.tip-amount-label>p:last-of-type, .total-label>p:last-of-type {
+    color: var(--gray-cyan);
+    margin-top: 0;
+    font-size: 14px;
+}
+
+#tip-amount-num, #total-num {
+    margin: 0;
+    color: var(--strong-cyan);
+    font-size: 30px;
+}
+
+#reset-btn {
+    width: 100%;
+    background-color: var(--strong-cyan);
+    color: var(--dark-cyan);
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 20px;
+    padding: .45em 0;
+    margin-top: 1em;
+}
+
+@media only screen and (min-width: 845px) {
+
+    body {
+        height: 100vh;
+    }
+    
+    header {
+        margin-top: 2.5em;
+        height: 20%;
+    }
+
+    header>img {
+        width: 70px;
+    }
+
+    main {
+        max-width: 950px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        gap: 3em;
+        border-radius: 20px;
+        padding: 2em;
+    }
+
+    #bill {
+        background-position: 5%;
+        
+    }
+    
+    #num-of-people {
+        background-position: 5%;
+    }
+
+    #select-tip {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .results {
+        height: 100%;
+        margin: 0;
+        padding: 2.5em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .total {
+        margin-top: 1.5em;
+    }
+
+    #total-num, #tip-amount-num {
+        font-size: 40px;
+    }
+
+    #select-tip>label:active, #reset-btn:active {
+        background-color: hsl(172, 75%, 69%);
+        color: var(--dark-cyan);
+    }
+
+    #select-tip>label:hover, #reset-btn:hover {
+        cursor: pointer;
+    }
+}
